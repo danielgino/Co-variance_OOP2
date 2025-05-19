@@ -1,7 +1,5 @@
 package org.example.question1.fileloaders;
-
 import org.example.question1.Feature;
-
 import java.io.*;
 import java.util.*;
 

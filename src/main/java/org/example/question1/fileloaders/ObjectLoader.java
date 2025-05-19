@@ -1,8 +1,6 @@
 package org.example.question1.fileloaders;
-
 import org.example.question1.Feature;
 import org.example.question1.PrototypeObject;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,8 +11,7 @@ public class ObjectLoader {
     public static List<PrototypeObject> loadObjects(String path, Map<String, Map<String, Feature>> featureDefinitions) throws IOException {
         Map<String, PrototypeObject> objects = new LinkedHashMap<>();
         BufferedReader reader = new BufferedReader(new FileReader(path));
-        String line = reader.readLine(); // skip header
-
+        String line = reader.readLine();
         while ((line = reader.readLine()) != null) {
             String[] parts = line.split(",");
             if (parts.length < 4) continue;

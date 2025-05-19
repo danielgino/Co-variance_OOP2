@@ -1,5 +1,4 @@
 package org.example.question1;
-
 import java.util.HashMap;
 import java.util.Map;
 
