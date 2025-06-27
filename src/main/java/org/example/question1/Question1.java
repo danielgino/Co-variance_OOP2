@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Main {
+public class Question1 {
     public static void main(String[] args) throws IOException {
         Map<String, Map<String, Feature>> featureWeights =
                 FeatureLoader.loadFeatures("src/main/java/org/example/question1/data/features.csv");
@@ -16,7 +16,7 @@ public class Main {
 
         Map<String, PrototypeObject> idealByCategory = new HashMap<>();
         for (String category : featureWeights.keySet()) {
-            PrototypeObject ideal = new PrototypeObject(category, "אידאלי");
+            PrototypeObject ideal = new PrototypeObject(category, "ideal");
             for (Map.Entry<String, Feature> entry : featureWeights.get(category).entrySet()) {
                 Feature f = entry.getValue();
                 ideal.addFeature(entry.getKey(), new Feature(entry.getKey(), f.getWeight(), f.getValue()));

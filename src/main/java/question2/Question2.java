@@ -8,7 +8,7 @@ import java.util.List;
 
 import static question2.Methods.*;
 
-public class Main {
+public class Question2 {
     public static void main(String[] args) {
    Dog rocky=new Dog("Rocky");
    Dog toy=new Dog("Toy");

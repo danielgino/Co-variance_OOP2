@@ -8,7 +8,7 @@ public class FeatureLoader {
     public static Map<String, Map<String, Feature>> loadFeatures(String path) throws IOException {
         Map<String, Map<String, Feature>> featureMap = new HashMap<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
-            String line = reader.readLine(); //
+            String line = reader.readLine();
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length < 3) continue;
