@@ -96,3 +96,110 @@ The system loads:
 
 ```
 
+
+# Question 2- Java Generics – Covariance & Contravariance
+
+## Object-Oriented Programming Assignment
+
+This project demonstrates the use of **covariance** and **contravariance** in Java generics through practical examples using `List<T>`, inheritance, and bounded wildcards.
+
+---
+
+### Goal:
+To understand and apply covariance (`? extends T`) and contravariance (`? super T`) in Java using class hierarchies and generic lists.
+
+---
+
+## Class Structure
+
+### `Animal` (Base Class)
+```java
+public class Animal {
+    protected String name;
+    public Animal(String name) { this.name = name; }
+    public String getName() { return name; }
+}
+
+Dog (Subclass of Animal)
+public class Dog extends Animal {
+    public Dog(String name) { super(name); }
+}
+```
+##  Implemented Methods
+```
+public static void printAnimalsNames(List<? extends Animal> animals) {
+    for (Animal animal : animals) {
+        System.out.println(animal.getName());
+    }
+}
+public static void printObjects(List<Object> objects) {
+    for (Object o : objects) {
+        System.out.println(o);
+    }
+}
+
+```
+
+# Input Code
+
+```
+   public static void main(String[] args) {
+   Dog rocky=new Dog("Rocky");
+   Dog toy=new Dog("Toy");
+   Dog rex=new Dog("Rex");
+   Dog bobi=new Dog("Bobi");
+   Dog sky=new Dog("Sky");
+   List<Dog> dogList = new ArrayList<>(List.of(rocky, toy, rex, bobi, sky));
+    System.out.println("Section A= Print All dogs name List<? extends Animal>");
+    printAnimalsNames(dogList);
+    System.out.println("Section B= Add a New Dog to List<? super Dog>");
+    addAnimalToList(dogList,"Zoey");
+    printAnimalsNames(dogList);
+    System.out.println("Section C= Testing with Object 2 functions");
+    System.out.println("Using Print Function to random animals");
+    List <Animal> animals=new ArrayList<>();
+    animals.add(new Animal("Giraffe"));
+    animals.add(new Animal("Zebra"));
+    printAnimalsNames(animals);
+    System.out.println("Adding dogs to Objects+Print");
+    List<Object> randomObject=new ArrayList<>();
+    randomObject.add(new Dog("Scooby"));
+    randomObject.add(new Dog("Pincher"));
+   printObjects(randomObject);
+    System.out.println("Adding dogs to Animals+Print");
+     animals.add(new Dog("Coco"));
+     animals.add(new Dog("Podel"));
+     printAnimalsNames(animals);
+    }
+```
+
+# Output
+
+```
+Section A= Print All dogs name List<? extends Animal>
+Rocky
+Toy
+Rex
+Bobi
+Sky
+Section B= Add a New Dog to List<? super Dog>
+Rocky
+Toy
+Rex
+Bobi
+Sky
+Zoey
+Section C= Testing with Object 2 functions
+Using Print Function to random animals
+Giraffe
+Zebra
+Adding dogs to Objects+Print
+Scooby
+Pincher
+Adding dogs to Animals+Print
+Giraffe
+Zebra
+Coco
+Podel
+```
+
